@@ -1,0 +1,234 @@
+<!DOCTYPE html><html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Ecommerce - Mekanik Store</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #1e1e1e;
+            color: #f1f1f1;
+        }
+        header {
+            background: #292929;
+            padding: 15px 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.6);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 22px;
+            color: #ffcc00;
+        }
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #333;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .search-box input[type="text"] {
+            padding: 10px;
+            width: 220px;
+            border: none;
+            outline: none;
+            background: #444;
+            color: #fff;
+        }
+        .search-box button {
+            padding: 10px 15px;
+            background: #ffcc00;
+            color: #000;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .cart {
+            position: relative;
+            font-size: 22px;
+            cursor: pointer;
+            color: #ffcc00;
+        }
+        .cart span {
+            background: red;
+            color: #fff;
+            border-radius: 50%;
+            padding: 3px 7px;
+            font-size: 12px;
+            position: absolute;
+            top: -8px;
+            right: -12px;
+            font-weight: bold;
+        }
+        main {
+            padding: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-gap: 25px;
+        }
+        .product {
+            background: #2a2a2a;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.8);
+        }
+        .product img {
+            max-width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .product h3 {
+            margin: 10px 0 5px;
+            color: #ffcc00;
+        }
+        .product p {
+            font-size: 14px;
+            color: #ccc;
+            min-height: 40px;
+        }
+        .product .price {
+            margin: 10px 0;
+            font-weight: bold;
+            color: #00ff88;
+        }
+        .product button {
+            background: #ffcc00;
+            color: #000;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.2s ease;
+        }
+        .product button:hover {
+            background: #e6b800;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>⚙️ Mekanik Store</h1>
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Cari produk...">
+            <button onclick="searchProduct()">Cari</button>
+        </div>
+        <div class="cart">🛒<span id="cart-count">0</span></div>
+    </header><main id="product-list">
+     <div class="product" data-name="Kenada Manifold">
+        <img src="Scdbfa493c77c4f9ab46acd05390d73c3C.jpg_640x640q90.jpg" alt="Kenada Manifold">
+        <h3>Kenada Racing Manifold</h3>
+        <p>Intake manifold racing Kenada, high performance.</p>
+        <div class="price">Rp 350.000</div>
+        <button onclick="addToCart()">Add To Cart</button>
+    </div>
+    <div class="product" data-name="Kenada karburator">
+        <img src="Screenshot_20250909-101446.jpg" alt="Kenada Karburator">
+        <h3>karburator Kenada</h3>
+        <p>Karburator Kenada Racing, performa tinggi.</p>
+        <div class="price">Rp 750.000</div>
+        <button onclick="addToCart()">Add To Cart</button>
+    </div>
+ 
+ <div class="product" data-name="scarlet racing karburator">
+        <img src="scarlet_racing_carburator_karbu_pwk_qas_ukuran_33_35_38_scarlet_racing_full01_f017e51d.jpg" alt="Kenada Karburator">
+        <h3>Karburator scarlet </h3>
+        <p>karburator scarlet,performa menengah.</p>
+        <div class="price">Rp 750.000</div>
+        <button onclick="addToCart()">Add To Cart</button>
+    </div>
+
+
+ <div class="product" data-name="ECU aracer">
+        <img src="no-brand_ecu-aracer-speedtek-super-x-exciter-mx-king-v1-v2-v3-original_full01.jpg" alt="ECU">
+        <h3>ECU aracer </h3>
+        <p>limiter performa tinggi .</p>
+        <div class="price">Rp 7.000.000</div>
+        <button onclick="addToCart()">Add To Cart</button>
+    </div>
+
+
+ <div class="product" data-name="ECU BRT">
+        <img src="S00c5258610c94430be57a7025190c874m.png_720x720q80.png" alt="ECU">
+        <h3>ECU BRT </h3>
+        <p>limiter performa harian balap.</p>
+        <div class="price">Rp 1.000.00000
+</div>
+        <button onclick="addToCart()">Add To Cart</button>
+    </div>
+
+ <div class="product" data-name="CDI SHOGUN">
+        <img src="00-1-7e4152c6ab9921ba717f12d4b384e7b6-c8f7832b14a380bfb2a06dc667ad77dd.png" alt="CDI SHOGUN">
+        <h3>CDI SUZUKI SHOGUN 110 gen 1 </h3>
+        <p>CDI dengan limiter yang dapat tembus 12.000 rpm.</p>
+        <div class="price">Rp 85.000</di>
+      </div>
+        <button onclick="addToCart()">Add To Cart</button>
+    </div>
+
+   
+ <div class="product" data-name="knalpot DPJ">
+        <img src="S2c51b66830f34ee9b6db26c976a0ba8df.jpg_720x720q80.jpg" alt="CDI SHOGUN">
+        <h3>KNALPOT DPJ GP1 kompetisi </h3>
+        <p>knalpot ini di peruntukan untuk ROD RACE dan DRAG RACE.PERINGATAN!!! tidak untuk penggunaan harian</p>
+        <div class="price">Rp 180.000</di>
+      </div>
+        <button onclick="addToCart()">Add To Cart</button>
+    </div> 
+    
+    <div class="product" data-name="knalpot TZM">
+        <img src="Knalpot-TZM-Project-Honda-Beat-Deluxe.jpeg" alt="KNALPOT TZM">
+        <h3>KNALPOT TZM PROJECT </h3>
+        <p>knalpot dengan tingkar kebisingan yang sangat rendah dan sangat di rekomendasi kan untuk pemakaian harian, karna sudah di lengkapi peredam bawaan</p>
+        <div class="price">Rp 2.000.000</di>
+      </div>
+        <button onclick="addToCart()">Add To Cart</button>
+    </div> 
+    
+<div class="product" data-name="knalpot CKD">
+        <img src="Sd63dd70853c44a14b8870f10ad303747O.jpg" alt="KNALPOT CKD">
+        <h3>KNALPOT CKD SATRIA FU </h3>
+        <p>knalpot CKD satria FU memiliki banyak ke untungan karna suara nya yang garing dan sangat berpengaruh pada tenaga atas </p>
+        <div class="price">Rp 120.000</di>
+      </div>
+        <button onclick="addToCart()">Add To Cart</button>
+    </div> 
+</main>
+
+<script>
+    function addToCart() {
+        let count = document.getElementById('cart-count');
+        count.textContent = parseInt(count.textContent) + 1;
+    }
+
+    function searchProduct() {
+        let input = document.getElementById('search').value.toLowerCase();
+        let products = document.querySelectorAll('.product');
+        products.forEach(product => {
+            let name = product.getAttribute('data-name').toLowerCase();
+            if (input === '' || input === 'all' || name.includes(input)) {
+                product.style.display = 'block';
+            } else {
+                product.style.display = 'none';
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
